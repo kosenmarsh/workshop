@@ -1,0 +1,405 @@
+    1  cd ~/Desktop/workshop/unix_intro
+    2  cd ~/Desktop/workshop/unix_intro
+    3  ls
+    4  date
+    5  date -u
+    6  head example.txt
+    7  head -n 5 example.txt
+    8  man head
+    9  man head
+   10  manual head
+   11  help head
+   12  man -k head
+   13  head --help
+   14  pwd
+   15  ls
+   16  head ~/Desktop/workshop/unix_intro/example.txt
+   17  head notes.txt
+   18  ls
+   19  head experiment/notes.txt 
+   20  cd ~/
+   21  ls
+   22  pwd
+   23  cd ~/Desktop/workshop/unix_intro
+   24  cd ..
+   25  ls
+   26  head
+   27  cd ~/
+   28  ls
+   29  cd /
+   30  ls
+   31  cd ~/
+   32  ls
+   33  cd Desktop/workshop/
+   34  ls
+   35  cd unix_intro/
+   36  ls
+   37  head example.txt 
+   38  pwd
+   39  tail example.txt
+   40  less example.txt
+   41  wc example.txt
+   42  wc --help
+   43  wc -l example.txt
+   44  cp example.txt example_copy.txt
+   45  ls
+   46  cp example.txt data/example_copy.txt
+   47  ls
+   48  cd data/
+   49  ls
+   50  cd ..
+   51  ls
+   52  cd experiment/notes.txt .
+   53  cp experiment/notes.txt .
+   54  ls
+   55  ls experiment/
+   56  mv example_copy.txt experiment/
+   57  ls experiment/
+   58  ls
+   59  mv notes.txt notes_old.txt
+   60  ls
+   61  rm notes_old.txt
+   62  nano sample_names.txt
+   63  ls
+   64  mkdir subset
+   65  ls
+   66  rmdir subset
+   67  rmdir experiment/
+   68  ls
+   69  wc -l example.txt
+   70  ls | wc -l
+   71  ls
+   72  ls data/all_samples/
+   73  ls data/all_samples/ | wc -l
+   74  ls > directory_contents.txt
+   75  ls
+   76  wc -l directory_contents.txt 
+   77  head directory_contents.txt 
+   78  head sample_names.txt 
+   79  ls experiment/ > directory_contents.txt 
+   80  head directory_contents.txt 
+   81  ls *.txt
+   82  lse*
+   83  ls e*
+   84  cd data/all_samples/
+   85  ls
+   86  ls | wc -l
+   87  ls *.txt | wc -l
+   88  ls *.tsv | wc -l
+   89  ls *.fq | wc -l
+   90  mkdir fastq_files
+   91  ls fastq_files/
+   92  ls *.fq
+   93  mv *.fq fastq_files/
+   94  ls fastq_files/
+   95  ls | wc -l
+   96  histort
+   97  history
+   98  history | tail
+   99  history 95
+  100  history --help
+  101  history | less
+  102  cd fastq_files/
+  103  ls sample_1*fq
+  104  ls sample_1*.fq
+  105  ls sample_1?.fq
+  106  pwd
+  107  cd ~/Desktop/workshop/unix_intro
+  108  cd six_commands/
+  109  head gene_annotations.tsv 
+  110  head -n 1 gene_annotations.tsv 
+  111  cut -f 1 gene_annotations.tsv
+  112  cut -f 1 gene_annotations.tsv | head
+  113  cut -f 1,3 gene_annotations.tsv | head
+  114  cut -f 1-3 gene_annotations.tsv | head
+  115  cut -f 1-3 example_gene_annotations.csv | head
+  116  cut -d , -f 1-3 example_gene_annotations.csv | head
+  117  cut -f 1,3 gene_annotations.tsv > IDs_and_annotations.tsv
+  118  head IDs_and_annotations.tsv 
+  119  cut -f 1,4 gene_annotations.tsv > IDs_and_annotations.tsv
+  120  head IDs_and_annotations.tsv 
+  121  history --help
+  122  history -a
+  123  wc -l IDs_and_annotations.tsv
+  124  ls
+  125  head colors.txt 
+  126  grep blue colors.txt 
+  127  grep re colors.txt 
+  128  history
+  129  grep re colors.txt 
+  130  grep black colors.txt 
+  131  head -n 1 gene_annotations.tsv 
+  132  grep K09765 gene_annotations.tsv
+  133  grep K09765 gene_annotations.tsv
+  134  grep K18979 gene_annotations.tsv
+  135  grep K18979 gene_annotations.tsv | cut -f 2
+  136  grep -c K18979 gene_annotations.tsv
+  137  cat gene_annotations.tsv
+  138  grep "twi.*protein" gene_annotations.tsv
+  139  grep -iw "pseudo" gene_annotations.tsv
+  140  grep -i "pseudo" gene_annotations.tsv
+  141  wc -r gene_annotations.tsv
+  142  wc --r
+  143  wc --help
+  144  grep -A 4 -i "pseudo" gene_annotations.tsv
+  145  grep -B 4 -i "pseudo" gene_annotations.tsv
+  146  export GREP_OPTIONS='--color=auto' GREP_COLOR='100;8'
+  147  grep -B 4 -i "pseudo" gene_annotations.tsv
+  148  grep -B 4 -i "pseudo" gene_annotations.tsv
+  149  export GREP_OPTIONS="--color=auto"
+  150  grep -B 4 -i "pseudo" gene_annotations.tsv
+  151  nano .exports
+  152  unset GREP_OPTIONS
+  153  grep -B 4 -i "pseudo" gene_annotations.tsv
+  154  head colores.txt
+  155  paste colors.txt colores.txt
+  156  head colors.txt
+  157  head colores.txt
+  158  head genes_and_seqs.tsv
+  159  less -S genes_and_seqs.tsv
+  160  paste gene_annotations.tsv genes_and_seqs.tsv | head -n 1
+  161  paste gene_annotations.tsv genes_and_seqs.tsv | cut -f 1-4,6- | head -n 2
+  162  tail gene_annotations.tsv
+  163  sed 's/UW179A/UW277/' gene_annotations.tsv | tail
+  164  sed 's/UW179A/UW277/' gene_annotations.tsv > modified_gene_annotations.tsv
+  165  tail modified_gene_annotations.tsv
+  166  pwd
+  167  cd ..
+  168  ls
+  169  my_var=ANGUS
+  170  echo $my_var
+  171  echo my_var
+  172  my_new_var="Tucson, Arizona, USA"
+  173  echo $my_new_var 
+  174  mkdie for_loops
+  175  mkdir for_loops
+  176  cd for_loops/
+  177  for item in earth mars venus; do echo $item; done
+  178  for item in earth mars venus; do echo $item; done
+  179  for item in earth mars venus; do echo $word; done
+  180  for word in earth mars venus; do echo $word; done
+  181  for item in earth mars venus; do echo $item; echo $item >> planets.txt; done
+  182  ls
+  183  head planets.txt 
+  184  for item in earth mars venus; do echo $item; echo $item > test.txt; done
+  185  head test.txt 
+  186  cat planets.txt
+  187  for item in $(cat planets.txt); do echo $item; done
+  188  echo $(cat planets.txt)
+  189  cp ~/Desktop/workshop/unix_intro/six_commands/genes_and_seqs.tsv .
+  190  head -n 1 genes_and_seqs.tsv
+  191  tail --help
+  192  cut -f 1 genes_and_seqs.tsv | tail -n +2 > ids.tmp
+  193  cut -f 3 genes_and_seqs.tsv | tail -n +2 > seqs.tmp
+  194  head ids.tmp
+  195  head seqs.tmp
+  196  sed 's/^/>/' ids.tmp > fasta_ids.tmp
+  197  head fasta_ids.tmp
+  198  sed --help
+  199  paste fasta_ids.tmp seqs.tmp | head -n 2
+  200  paste -d "-" fasta_ids.tmp seqs.tmp | head -n 2
+  201  paste -d "\n" fasta_ids.tmp seqs.tmp | head -n 4
+  202  paste -d "\n" fasta_ids.tmp seqs.tmp > genes.faa
+  203  head genes.faa
+  204  rm *.tmp
+  205  grep "K18979" ../six_commands/gene_annotations.tsv | cut -f 1
+  206  grep "K18979" ../six_commands/gene_annotations.tsv | cut -f 1 > target_gene_ids.txt
+  207  ls
+  208  head target_gene_ids.txt
+  209  history > history_unix.txt
+  210  grep "99" genes.faa
+  211  grep -A 1 "99" genes.faa
+  212  pwd
+  213  cd ..
+  214  cd ..
+  215  mkdir git_lesson
+  216  cd git_lesson/
+  217  ls
+  218  git init
+  219  ls
+  220  ls -a
+  221  re -r .git
+  222  rm -r .git
+  223  cd ..
+  224  ls
+  225  git init
+  226  ls -a
+  227  it config --global user.name "David Marsh"
+  228  git config --global user.name "David Marsh"
+  229  git config --global user.name "kosenmarsh"
+  230  git config --global user.email "kosenmarsh@gmail.com"
+  231  gitconfig --list
+  232  git config --list
+  233  git config --global user.email "kosen.marsh@gmail.com"
+  234  git config --list
+  235  git add --all
+  236  git commit --message "initialize the workshop directory as a repository"
+  237  ls -a
+  238  cd .git
+  239  ls
+  240  history | head
+  241  cd ..
+  242  cd .git/objects/
+  243  ls
+  244  cd..
+  245  cd ..
+  246  cd ..
+  247  pwd
+  248  cd git_lesson/
+  249  touch practice,txt
+  250  ls
+  251  touch practice.txt
+  252  rm practice,txt 
+  253  ls
+  254  git add practice.txt 
+  255  git commit --message "ADDED NEW FILE"
+  256  git status
+  257  nano practice.txt 
+  258  echo "Hello everyone" >> practice.txt
+  259  head practice.txt 
+  260  git status
+  261  git diff
+  262  git add practice.txt
+  263  git status
+  264  git commit -m "PRACTICE COMITTED"
+  265  git status 
+  266  touch practice2.txt
+  267  ls
+  268  git add practice2.txt 
+  269  echo "hello again my friends" >> practice2.txt 
+  270  head practice2.txt 
+  271  git status
+  272  git add practice2.txt 
+  273  git status 
+  274  git commit -m "PRACTICE" COMITTED"
+  275  git commit -m "PRACTICE COMMITTED"
+  276  git diff
+  277  git log
+  278  echo "Goodbye everyone" > practice.txt
+  279  head practice.txt 
+  280  git status
+  281  git diff
+  282  touch new_practice.txt
+  283  git status
+  284  git commit -a -m "LATEST COMMIT"
+  285  git status
+  286  git add new_practice.txt 
+  287  git commit -a -m "ADDED NEW PRACTICE"
+  288  git status 
+  289  git remote add origin https://github.com/kosenmarsh/workshop.git
+  290  git push -u origin master
+  291  git remote --verbose
+  292  pwd
+  293  cd ..
+  294  git pull
+  295  ls
+  296  cat README.md 
+  297  ls
+  298  cd git_lesson/
+  299  ls
+  300  head new_practice.txt 
+  301  echo "Now I'm going ot push this file to Github" > new_practice.txt 
+  302  sed 's/ot/to' new_practice.txt 
+  303  sed 's/ot/to/' new_practice.txt 
+  304  git status 
+  305  git add new_practice.txt 
+  306  git status 
+  307  git commit -m "CHANGED NEW_PRACTICE"
+  308  git push
+  309  head new_practice.txt 
+  310  sed 's/ot/to/' new_practice.txt
+  311  sed 's/ot/to/' new_practice.txt > new_practice.txt 
+  312  head new_practice.txt 
+  313  head new_practice.txt 
+  314  echo "Now I'm going to push this file to Github" > new_practice.txt 
+  315  head new_practice.txt 
+  316  git add new_practice.txt 
+  317  git commit -m "CHANGED NEW_PRACTICE AGAIN"
+  318  git push
+  319  git pull
+  320  git log
+  321  git status
+  322  cd ..
+  323  ls
+  324  cd git_lesson/
+  325  ls
+  326  git diff
+  327  git diff
+  328  cd ..
+  329  cd unix_challenge/
+  330  ls
+  331  head Afghanistan.cc.txt 
+  332  for item in $(cat *.cc.txt); echo item >> country.txt
+  333  for item in $(cat *.cc.txt); echo item >> country.txt
+  334  for item in $(cat *.cc.txt); echo $item >> country.txt
+  335  for item in $(cat *.cc.txt); do echo $item >> country.txt; done
+  336  cat country.txt 
+  337  head country.txt 
+  338  for item in $(cat *.cc.txt); do cat $item >> country2.txt; done
+  339  touch country2.txt
+  340  for item in $(cat *.cc.txt); do cat $item >> country2.txt; done
+  341  head country2.txt 
+  342  for item in $(ls *.cc.txt); do cat $item >> country2.txt; done
+  343  head country2.txt 
+  344  head country.txt 
+  345  head -n 1 > country_new.txt
+  346  head -n 1 country.txt > country_new.txt
+  347  head country_new.txt 
+  348  mv country_new.txt country.txt
+  349  for item in $(ls *.cc.txt); do cat $item >> country.txt; done
+  350  head country.txt
+  351  cat country.txt
+  352  grep 1997 country.txt
+  353  grep --help
+  354  grep -w 1997 country.txt
+  355  grep -w 1997 country.txt > 1997.txt
+  356  head 1997.txt
+  357  git add country.txt
+  358  git add 1997.txt
+  359  git status
+  360  rm country2.txt
+  361  git commit -m "ADDED UNIX CHALLENGE"
+  362  git status
+  363  rm ../tatus
+  364  git push
+  365  cat *.cc.txt
+  366  cat *.cc.txt >> xcountry.txt
+  367  ls xcountry.txt 
+  368  cat xcountry.txt 
+  369  rm xcountry.txt
+  370  echo "for item in *.cc.txt; do cat $item >> country.txt; done" > loop.sh
+  371  head loop.sh
+  372  head -n 1 country.txt > country_new.txt
+  373  git restore country.txt
+  374  head country.txt
+  375  head -n 1 country.txt > country.tmp
+  376  mv country.tmp country.txt
+  377  head country.txt
+  378  rm country.tmp
+  379  .loop
+  380  .loop.sh
+  381  sh loop.sh
+  382  cat country.txt
+  383  git diff
+  384  git add country.txt
+  385  git commit -m "FINAL COMMIT 26TH OCT"
+  386  git status
+  387  git ass loop.sh
+  388  rm country_new.txt
+  389  git add loop.sh
+  390  git commit -m "FINAL COMMIT 26TH OCT"
+  391  git status
+  392  git push
+  393  git status
+  394  git status
+  395  history >> history_unix.txt
+  396  git status
+  397  ls
+  398  rm history_unix.txt 
+  399  cd ..
+  400  ls
+  401  cd unix_intro/
+  402  ls
+  403  cd ..
+  404  ls
+  405  history >> history_unix.txt
